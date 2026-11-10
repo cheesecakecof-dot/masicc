@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Перова Т.А. — Перекрёсток</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0c0a;
+    --bg-2:#15120e;
+    --ivory:#efe9de;
+    --dim:#a89d8b;
+    --faint:#6b6357;
+    --bronze:#b08d5f;
+    --wine:#7a2530;
+    --line:rgba(176,141,95,.22);
+    --serif:"Cormorant Garamond",serif;
+    --sans:"Manrope",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:grid;place-items:center;padding:32px 18px;
+    background:
+      radial-gradient(100% 80% at 50% 0%, #1a1610 0%, transparent 55%),
+      #0a0908;
+    font-family:var(--sans);-webkit-font-smoothing:antialiased;
+  }
+  .card{
+    position:relative;width:min(620px,100%);
+    padding:44px 40px 38px;
+    background:linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);
+    border:1px solid var(--line);
+    box-shadow:0 40px 100px -50px #000;
+    overflow:hidden;
+  }
+  /* крест: вертикаль */
+  .axis-v{
+    position:absolute;left:50%;top:0;bottom:0;width:1px;
+    background:linear-gradient(to bottom,transparent,var(--line) 15%,var(--line) 85%,transparent);
+    transform:translateX(-.5px);
+  }
+  /* крест: горизонталь */
+  .axis-h{
+    position:absolute;left:0;right:0;top:50%;height:1px;
+    background:linear-gradient(to right,transparent,var(--line) 15%,var(--line) 85%,transparent);
+  }
+  /* точка пересечения */
+  .axis-v::after{
+    content:"";position:absolute;left:-3px;top:50%;margin-top:-3px;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--bronze);box-shadow:0 0 14px rgba(176,141,95,.7);
+  }
+  .head{
+    position:relative;z-index:2;text-align:center;padding-bottom:32px;
+  }
+  .eyebrow{
+    font-size:9px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--bronze);margin-bottom:22px;
+  }
+  .name{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(36px,7vw,50px);line-height:1;color:var(--ivory);
+    margin-bottom:10px;
+  }
+  .role{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(15px,3vw,19px);color:var(--dim);
+  }
+  .role em{font-style:normal;color:var(--wine);filter:brightness(1.6)}
+  /* ДВЕ КОЛОННЫ */
+  .split{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+    margin-bottom:30px;
+  }
+  .side{
+    padding:26px 22px;
+  }
+  .side:first-child{text-align:right;padding-right:28px}
+  .side:last-child{padding-left:28px}
+  .side h3{
+    font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--faint);font-weight:500;margin-bottom:14px;
+  }
+  .side ul{list-style:none}
+  .side li{
+    font-size:11.5px;line-height:2.1;font-weight:300;color:var(--dim);
+  }
+  .side li b{color:var(--ivory);font-weight:500}
+  .lede{
+    position:relative;z-index:2;
+    font-size:12.5px;line-height:1.9;font-weight:300;color:#9c9182;
+    max-width:48ch;margin:0 auto 28px;text-align:center;
+  }
+  .lede b{color:var(--ivory);font-weight:500}
+  .foot{
+    position:relative;z-index:2;
+    text-align:center;padding-top:20px;
+    border-top:1px solid rgba(176,141,95,.14);
+    font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--faint);line-height:2;
+  }
+  .foot span{color:rgba(176,141,95,.35);margin:0 7px}
+  @media(max-width:560px){
+    .card{padding:34px 22px 28px}
+    .axis-v{display:none}
+    .axis-h{display:none}
+    .split{grid-template-columns:1fr;gap:0}
+    .side:first-child,.side:last-child{text-align:left;padding:14px 0}
+    .side:first-child{border-bottom:1px solid rgba(176,141,95,.12)}
+  }
+</style>
+</head>
+<body>
+<article class="card">
+  <div class="axis-v" aria-hidden="true"></div>
+  <div class="axis-h" aria-hidden="true"></div>
+
+  <header class="head">
+    <p class="eyebrow">Digital Health · Стратегия · GR</p>
+    <h1 class="name">Перова Т. А.</h1>
+    <p class="role">CBDO <em>·</em> Digital Health</p>
+  </header>
+
+  <div class="split">
+    <div class="side">
+      <h3>Компетенции</h3>
+      <ul>
+        <li><b>Стратегический</b> консалтинг</li>
+        <li><b>Аудит</b> рынка</li>
+        <li><b>GR</b>-стратегии</li>
+        <li><b>B2B</b>-продажи</li>
+        <li>Экосистемы · альянсы</li>
+      </ul>
+    </div>
+    <div class="side">
+      <h3>Экспертиза</h3>
+      <ul>
+        <li><b>Экс</b> — Росздравнадзор</li>
+        <li><b>Экс</b> — Минздрав</li>
+        <li><b>Эксперт</b> при Минтруде</li>
+        <li><b>Нейрофизиолог</b></li>
+        <li>МГУ · РНИМУ · РАН</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="lede">
+    <b>18+ лет</b> развития бизнеса на высокорегулируемых рынках.
+    В фокусе — стратегический консалтинг, аудит рынка и работа
+    по достижению национальных приоритетов. Масштабирование
+    цифровых решений в здравоохранении.
+  </p>
+
+  <div class="foot">
+    CDTO <span>|</span> ESG (GRI) <span>|</span> Национальные приоритеты
+  </div>
+</article>
+</body>
+</html>
